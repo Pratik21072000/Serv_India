@@ -13,10 +13,19 @@ exports.registerUser = async (req, res) => {
       userName: username,
       userEmail: email,
       userPassword: hashPassword,
-    });
-    res
-      .status(201)
-      .json({ message: `${accountType} registered successfully!` });
+    })
+      .then((result) => {
+        if (result) {
+          res
+            .status(201)
+            .json({ message: `${accountType} registered successfully!` });
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          res.status(500).json({ message: err.message });
+        }
+      });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

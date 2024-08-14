@@ -8,21 +8,21 @@ const Register = sequelize.define("RegisterUser", {
     autoIncrement: true,
   },
   accountType: {
-    type: Sequelize.STRING,
+    type: Sequelize.JSONB,
     allowNull: false,
   },
   userName: {
-    type: Sequelize.STRING,
+    type: Sequelize.JSONB,
     allowNull: false,
     unique: true,
   },
   userEmail: {
-    type: Sequelize.STRING,
+    type: Sequelize.JSONB,
     allowNull: false,
     unique: true,
   },
   userPassword: {
-    type: Sequelize.STRING,
+    type: Sequelize.JSONB,
     allowNull: false,
   },
 });
